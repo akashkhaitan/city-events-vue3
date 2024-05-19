@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
@@ -9,8 +9,8 @@ import { RouterLink, RouterView } from 'vue-router'
         <!-- <EventCard msg="You did it!" /> -->
 
         <nav>
-          <RouterLink to="/">Events</RouterLink>
-          | <RouterLink to="/about">About</RouterLink>
+          <RouterLink :to="{ name: 'event-list' }">Events</RouterLink> |
+          <RouterLink :to="{ name: 'about' }">About</RouterLink>
         </nav>
       </div>
     </header>
@@ -26,6 +26,9 @@ import { RouterLink, RouterView } from 'vue-router'
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+header {
+  background-color: gray;
 }
 nav {
   padding: 30px;
