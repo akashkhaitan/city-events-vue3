@@ -1,9 +1,15 @@
 <script setup>
+import { inject } from "vue";
 import { RouterLink, RouterView } from "vue-router";
+
+const GStore = inject("GStore");
 </script>
 
 <template>
   <div id="layout">
+    <div id="flashMessage" v-if="GStore.flashMessage">
+      {{ GStore.flashMessage }}
+    </div>
     <header>
       <div class="wrapper">
         <!-- <EventCard msg="You did it!" /> -->
@@ -27,6 +33,21 @@ import { RouterLink, RouterView } from "vue-router";
   text-align: center;
   color: #2c3e50;
 }
+
+@keyframes yellowfade {
+  from {
+    background: yellow;
+  }
+  to {
+    background: transparent;
+  }
+}
+
+#flashMessage {
+  animation-name: yellowfade;
+  animation-duration: 3s;
+}
+
 header {
   background-color: gray;
 }
