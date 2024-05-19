@@ -29,12 +29,12 @@ const router = createRouter({
           component: EventDetails,
         },
         {
-          path: "",
+          path: "register",
           name: "event-register",
           component: EventRegister,
         },
         {
-          path: "",
+          path: "edit",
           name: "event-edit",
           component: EventEdit,
         },
