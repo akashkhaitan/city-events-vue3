@@ -1,15 +1,12 @@
 <script setup>
 import EventCard from "@/components/EventCard.vue";
-import axios from "axios";
+import EventService from "@/services/EventService";
 import { onMounted, ref } from "vue";
 
 const events = ref(null);
 
 onMounted(() => {
-  axios
-    .get(
-      "https://my-json-server.typicode.com/akashkhaitan/city-events-vue3/events"
-    )
+  EventService.getEvents()
     .then((response) => (events.value = response.data))
     .catch((error) => console.log(error));
 });
@@ -18,6 +15,10 @@ onMounted(() => {
 <template>
   <main>
     <h1>Events for Good</h1>
+    <RouterLink :to="{ name: 'create-event' }">
+      <button>Create Event</button>
+    </RouterLink>
+
     <div class="events">
       <EventCard
         v-for="event in events"
